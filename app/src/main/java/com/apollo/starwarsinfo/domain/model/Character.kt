@@ -5,6 +5,6 @@ data class Character(
     val name: String,
     val gender: String,
     val birthDate: String,
-    val filmsIds: String,
+    val filmsIds: List<String>,
     val planetId: String
 )
