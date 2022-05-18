@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.apollo.starwarsinfo.domain.model.Planet
 
-@Entity
+@Entity(tableName = PlanetDao.TABLE_NAME)
 data class PlanetEntity(
     @PrimaryKey
     @ColumnInfo(name = "id")
