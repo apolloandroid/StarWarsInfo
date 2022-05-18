@@ -7,11 +7,14 @@ import com.apollo.starwarsinfo.data.character.local.CharacterDao
 import com.apollo.starwarsinfo.data.character.local.CharacterEntity
 import com.apollo.starwarsinfo.data.film.local.FilmDao
 import com.apollo.starwarsinfo.data.film.local.FilmEntity
+import com.apollo.starwarsinfo.data.planet.local.PlanetDao
+import com.apollo.starwarsinfo.data.planet.local.PlanetEntity
 
 @Database(
     entities = [
         CharacterEntity::class,
-        FilmEntity::class
+        FilmEntity::class,
+        PlanetEntity::class
     ],
     version = 1
 )
@@ -22,7 +25,10 @@ abstract class AppDatabase : RoomDatabase() {
         const val NAME = "star_wars_database"
     }
 
+
     abstract fun characterDao(): CharacterDao
 
     abstract fun filmDao(): FilmDao
+
+    abstract fun planetDao(): PlanetDao
 }

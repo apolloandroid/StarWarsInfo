@@ -13,9 +13,7 @@ class FilmRepository @Inject constructor(
     private val remoteDataSource: FilmApi
 ) {
 
-    val films = localDataSource.getAllFlow().map { entities ->
-        entities.map { it.mapToDomain() }
-    }
+    val films = localDataSource.getAllFlow().map { entities -> entities.map { it.mapToDomain() } }
 
 
     suspend fun getFilmsFromLocal() = localDataSource.getAll()

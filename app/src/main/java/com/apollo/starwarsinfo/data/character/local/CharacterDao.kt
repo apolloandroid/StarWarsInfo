@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.apollo.starwarsinfo.data.planet.local.PlanetDao
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -13,12 +14,13 @@ interface CharacterDao {
         const val TABLE_NAME = "characters"
     }
 
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(character: CharacterEntity)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(characters: List<CharacterEntity>)
 
-    @Query("SELECT * FROM characters")
+    @Query("SELECT * FROM $TABLE_NAME")
     fun getAllFlow(): Flow<List<CharacterEntity>>
 }

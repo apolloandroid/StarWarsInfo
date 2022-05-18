@@ -18,8 +18,8 @@ class CharacterRepository @Inject constructor(
     }
 
 
-    private suspend fun getCharacterFromRemote(characterId: String) {
-        val character = remoteDataSource.getCharacterById(characterId).mapToDomain()
+    private suspend fun getCharacterFromRemoteById(id: String) {
+        val character = remoteDataSource.getCharacterById(id).mapToDomain()
         localDataSource.insert(CharacterEntity.mapFromDomain(character))
     }
 }
